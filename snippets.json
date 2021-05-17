@@ -1,0 +1,159 @@
+{
+  "Create a new Component": {
+    "prefix": "jnc",
+    "body": [
+      "import React, { FC } from \"react\";",
+      "import { css } from \"@emotion/css\";",
+      "",
+      "let ${1:NewComponent}: FC<{$2 className?: string}> = React.memo((props) => {",
+      "  ",
+      "  /** Plugins */",
+      "  /** Methods */",
+      "  /** Effects */",
+      "  /** Renderers */",
+      "  return <div className={props.className} >$0</div>;",
+      "});",
+      "",
+      "export default NewComponent;"
+    ],
+    "description": "Create a new component"
+  },
+  "this.immerState": {
+    "prefix": "jis",
+    "body": ["this.immerState(state => {", "  $2", "})", "$0"],
+    "description": "Call immerState"
+  },
+  "this.mergeState": {
+    "prefix": "jms",
+    "body": ["this.mergeState({$1})", "$0"],
+    "description": "Call immerState"
+  },
+  "Meson form": {
+    "prefix": "jmsf",
+    "body": [
+      "<MesonForm",
+      "  initialValue={{}}",
+      "  items={formItems}",
+      "  onSubmit={(form) => {",
+      "    $1",
+      "  }}",
+      "  onCancel={() => {",
+      "    $0",
+      "  }}",
+      "/>;"
+    ],
+    "description": "Meson form"
+  },
+  "Meson form modal": {
+    "prefix": "jmsfm",
+    "body": [
+      "<MesonFormModal",
+      "  title={$1}",
+      "  visible={$2formVisible}",
+      "  onClose={() => {",
+      "    $3setFormVisible(false);",
+      "  }}",
+      "  width={800}",
+      "  items={formItems}",
+      "  initialValue={{}}",
+      "  hideClose={false}",
+      "  onSubmit={(form) => {",
+      "    $0setFormVisible(false);",
+      "  }}",
+      "/>;"
+    ],
+    "description": "Meson form modal"
+  },
+  "Meson form drawer": {
+    "prefix": "jmsfd",
+    "body": [
+      "<MesonFormDrawer",
+      "  title={$1}",
+      "  visible={$2formVisible}",
+      "  onClose={() => {",
+      "    $3setFormVisible(false);",
+      "  }}",
+      "  width={800}",
+      "  items={formItems}",
+      "  initialValue={{}}",
+      "  hideClose={false}",
+      "  onSubmit={(form) => {",
+      "    $0setFormVisible(false);",
+      "  }}",
+      "/>;"
+    ],
+    "description": "Meson form drawer"
+  },
+  "API Hooks": {
+    "prefix": "jhk",
+    "body": [
+      "/** 获取 data 的数据 */",
+      "export let useData$1 = (options: IListDataOptions): [IData$2[], boolean, () => void] => {",
+      "  let [data, setData] = useState([] as IData[]);",
+      "  let [isLoading, setLoading] = useState(false);",
+      "",
+      "  let loadData = async () => {",
+      "    setLoading(true);",
+      "",
+      "    try {",
+      "      let result = await listData$3(options);",
+      "      setData(result.items);",
+      "    } finally {",
+      "      setLoading(false);",
+      "    }",
+      "  };",
+      "",
+      "  useEffect(() => {",
+      "    loadData();",
+      "  }, [options.plantId $0]);",
+      "",
+      "  return [data, isLoading, loadData];",
+      "};"
+    ],
+    "description": "Hooks for fetching API"
+  },
+  "CSS style": {
+    "prefix": "jcs",
+    "body": ["let ${1:style} = css`", "  $0", "`;"],
+    "description": "Emotion style"
+  },
+  "useState": {
+    "prefix": "jst",
+    "body": ["let [${1:x}, set${2:X}] = useState(${0:null});"]
+  },
+  "useEffect": {
+    "prefix": "jef",
+    "body": ["useEffect(() => {", "  $0", "}, [$1])"]
+  },
+  "useRexContext": {
+    "prefix": "jrx",
+    "body": [
+      "let ${1:data} = useRexContext$2((store: IRexGlobalStore$3) => {",
+      "  return store$0",
+      "})"
+    ]
+  },
+  "useEditData": {
+    "prefix": "jue",
+    "body": [
+      "import React, { useState, ReactNode } from \"react\";",
+      "",
+      "export let useEdit${1:Data} = (props: {",
+      "  afterChange: ($2) => void;",
+      "}) => {",
+      "  // Model",
+      "  let [editing, setEditing] = useState(false);",
+      "",
+      "  // Plugins",
+      "",
+      "  // View",
+      "  let ui = <div>${0:editing}</div>",
+      "",
+      "  // Controller",
+      "  let onEdit = () => {",
+      "  }",
+      "  return { ui, onEdit };",
+      "}"
+    ]
+  }
+}
